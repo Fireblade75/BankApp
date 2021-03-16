@@ -1,9 +1,0 @@
-com\example\bankapp\Iban.class
-com\example\bankapp\exceptions\InvalidIbanException.class
-com\example\bankapp\exceptions\UnknownCustomerException.class
-com\example\bankapp\exceptions\UnknownBankAccountException.class
-com\example\bankapp\Customer.class
-com\example\bankapp\BankAccount.class
-com\example\bankapp\BankManager.class
-com\example\bankapp\exceptions\BalanceNotEmptyException.class
-com\example\bankapp\exceptions\BankTransferFailedException.class

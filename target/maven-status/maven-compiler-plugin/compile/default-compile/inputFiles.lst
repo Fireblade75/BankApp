@@ -1,9 +1,0 @@
-C:\Users\avera02\Documents\GitHub\BankApp\src\main\java\com\example\bankapp\exceptions\InvalidIbanException.java
-C:\Users\avera02\Documents\GitHub\BankApp\src\main\java\com\example\bankapp\exceptions\BankTransferFailedException.java
-C:\Users\avera02\Documents\GitHub\BankApp\src\main\java\com\example\bankapp\exceptions\UnknownCustomerException.java
-C:\Users\avera02\Documents\GitHub\BankApp\src\main\java\com\example\bankapp\exceptions\BalanceNotEmptyException.java
-C:\Users\avera02\Documents\GitHub\BankApp\src\main\java\com\example\bankapp\exceptions\UnknownBankAccountException.java
-C:\Users\avera02\Documents\GitHub\BankApp\src\main\java\com\example\bankapp\BankAccount.java
-C:\Users\avera02\Documents\GitHub\BankApp\src\main\java\com\example\bankapp\Customer.java
-C:\Users\avera02\Documents\GitHub\BankApp\src\main\java\com\example\bankapp\BankManager.java
-C:\Users\avera02\Documents\GitHub\BankApp\src\main\java\com\example\bankapp\Iban.java
