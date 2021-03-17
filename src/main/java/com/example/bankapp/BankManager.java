@@ -3,10 +3,7 @@ package com.example.bankapp;
 import com.example.bankapp.exceptions.BankTransferFailedException;
 import com.example.bankapp.exceptions.UnknownBankAccountException;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class BankManager {
     private static final double INTEREST_RATE = 0.05;
@@ -22,10 +19,14 @@ public class BankManager {
         return customer;
     }
 
-    public Iban addAccount(Customer customer, long accountNumber, double balance) {
-        Iban iban = new Iban(COUNTRY_CODE, 0, BANK_CODE, accountNumber);
+    public Iban addAccount(Customer customer, Iban iban, double balance) {
         bankAccounts.put(iban, new BankAccount(customer, iban, balance, INTEREST_RATE));
         return iban;
+    }
+
+    public Iban addAccount(Customer customer, long accountNumber, double balance) {
+        Iban iban = new Iban(COUNTRY_CODE, 0, BANK_CODE, accountNumber);
+        return addAccount(customer, iban, balance);
     }
 
     public void transferMoney(Iban from, Iban to, double amount) {
@@ -84,5 +85,33 @@ public class BankManager {
         System.out.println(bankManager.toString());
         bankManager.applyInterest();
         System.out.println(bankManager.toString());
+    }
+
+    public Customer getCustomer(int customerId) {
+        for(Customer c : customers) {
+            if(c.getCustomerId() == customerId) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    public Customer getCustomer(String firstName, String lastName) {
+        for(Customer c : customers) {
+            if(c.getFirstName().equals(firstName) && c.getLastName().equals(lastName)) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    public List<Iban> getBankAccountsByCustomer(Customer customer) {
+        ArrayList<Iban> ibans = new ArrayList<>();
+        for (var entry : bankAccounts.entrySet()) {
+            if(entry.getValue().getCustomers().contains(customer)) {
+                ibans.add(entry.getKey());
+            }
+        }
+        return ibans;
     }
 }

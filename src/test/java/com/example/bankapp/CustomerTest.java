@@ -28,10 +28,14 @@ class CustomerTest {
     }
 
     @Test
+    void testFullName() {
+        Customer customer = new Customer(1, "Bob", "Simson");
+        assertEquals(customer.getFullName(), "Bob Simson");
+    }
+
+    @Test
     void testToString() {
         Customer customer = new Customer(1, "Bob", "Simson");
-        assertEquals(customer.toString(), "Bob Simson");
-
-
+        assertEquals(customer.toString(), "1: Bob Simson");
     }
 }

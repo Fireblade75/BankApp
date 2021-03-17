@@ -22,13 +22,19 @@ public class BankCLI {
         writer.flush();
     }
 
-    private void run() {
+    private boolean run() {
         writer.print("> ");
         writer.flush();
         Scanner scanner = new Scanner(terminal.input());
+
         String line = scanner.nextLine();
-        System.out.println("Unknown command: " + line);
-        exit();
+        String output = commandHandler.handleCommand(line);
+        if(output.equals("exit")) {
+            return false;
+        } else {
+            writer.println(output);
+            return true;
+        }
     }
 
     private void exit() {
@@ -42,7 +48,12 @@ public class BankCLI {
     public static void main(String[] args) {
         try {
             BankCLI bankCLI = new BankCLI();
-            bankCLI.run();
+            while (true) {
+                if(!bankCLI.run()) {
+                    break;
+                }
+            }
+            bankCLI.exit();
         } catch (IOException e) {
             System.out.println("Failed to create JLine CLI: " + e.getMessage());
         }

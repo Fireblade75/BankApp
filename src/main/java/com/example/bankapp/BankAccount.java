@@ -1,6 +1,7 @@
 package com.example.bankapp;
 
 import com.example.bankapp.exceptions.BalanceNotEmptyException;
+import com.example.bankapp.exceptions.BankTransferFailedException;
 import com.example.bankapp.exceptions.UnknownCustomerException;
 
 import java.util.ArrayList;
@@ -47,6 +48,9 @@ public class BankAccount {
     }
 
     public boolean withdraw(double amount) {
+        if(amount < 0) {
+            throw new BankTransferFailedException();
+        }
         if(amount <= balance) {
             balance -= amount;
             return true;
@@ -55,6 +59,9 @@ public class BankAccount {
     }
 
     public void deposit(double amount) {
+        if(amount < 0) {
+            throw new BankTransferFailedException();
+        }
         balance += amount;
     }
 
