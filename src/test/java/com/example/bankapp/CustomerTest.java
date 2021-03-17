@@ -2,6 +2,9 @@ package com.example.bankapp;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerTest {
@@ -28,5 +31,7 @@ class CustomerTest {
     void testToString() {
         Customer customer = new Customer(1, "Bob", "Simson");
         assertEquals(customer.toString(), "Bob Simson");
+
+
     }
 }

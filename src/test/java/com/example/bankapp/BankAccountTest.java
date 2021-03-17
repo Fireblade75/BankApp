@@ -1,5 +1,6 @@
 package com.example.bankapp;
 
+import com.example.bankapp.exceptions.BankTransferFailedException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -31,10 +32,26 @@ class BankAccountTest {
     }
 
     @Test
+    void illegalWithdraw() {
+        BankAccount bankAccount = new BankAccount(customer, iban, 800, 0.05);
+        assertThrows(BankTransferFailedException.class, () -> {
+            bankAccount.withdraw(-300);
+        });
+    }
+
+    @Test
     void deposit() {
         BankAccount bankAccount = new BankAccount(customer, iban, 800, 0.05);
         bankAccount.deposit(400);
         assertEquals(bankAccount.getBalance(), 1200, 0.001);
+    }
+
+    @Test
+    void illegalDeposit() {
+        BankAccount bankAccount = new BankAccount(customer, iban, 800, 0.05);
+        assertThrows(BankTransferFailedException.class, () -> {
+            bankAccount.deposit(-300);
+        });
     }
 
     @Test
