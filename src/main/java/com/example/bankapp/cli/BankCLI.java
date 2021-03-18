@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+// BJ: je gitignore is nog niet helemaal volledig, wat ik krijg dingen uit .idea als commit suggestie.
 public class BankCLI {
     private Terminal terminal;
     private PrintWriter writer;
