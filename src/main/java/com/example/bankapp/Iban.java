@@ -69,7 +69,12 @@ public class Iban {
         return String.format("%s%02d%s%09d", landCode, controleGetal, bankCode, rekeningnummer);
     }
 
-    public static boolean checkAccountNumber(long accountNumber) {
+    /**
+     * Checks the account number by doing the 11-proof
+     * @param accountNumber the number to check
+     * @return true if the number is valid
+     */
+    private boolean checkAccountNumber(long accountNumber) {
         long checkVal = 0;
         String str = String.valueOf(accountNumber);
         for (int i = 0; i < str.length(); i++) {

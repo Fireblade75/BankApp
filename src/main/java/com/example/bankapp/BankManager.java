@@ -96,6 +96,12 @@ public class BankManager {
         return null;
     }
 
+    /**
+     * Find a customer by searching by name
+     * @param firstName the first name of the customer
+     * @param lastName the last name of the customer
+     * @return the customer or null if not found
+     */
     public Customer getCustomer(String firstName, String lastName) {
         for(Customer c : customers) {
             if(c.getFirstName().equals(firstName) && c.getLastName().equals(lastName)) {
