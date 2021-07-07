@@ -9,6 +9,7 @@ import com.example.bankapp.exceptions.UnknownBankAccountException;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// BJ: veel dubbele code en nesting in deze class; kan dit simpeler?
 public class BankAccountCommands {
     public static String transfer(BankManager bankManager, String[] words) {
         if (words.length != 4) {
@@ -67,11 +68,11 @@ public class BankAccountCommands {
         try {
             int customerId = Integer.parseInt(words[1]);
             Customer customer = bankManager.getCustomer(customerId);
-            if(customer == null) {
+            if (customer == null) {
                 return "Customer not found";
             } else {
                 List<Iban> ibans = bankManager.getBankAccountsByCustomer(customer);
-                if(ibans.size() > 0) {
+                if (ibans.size() > 0) {
                     return "- " + ibans.stream().map(Iban::toString).collect(Collectors.joining("\n- "));
                 }
                 return "No bank accounts found for " + customer.getFullName();
